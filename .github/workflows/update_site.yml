@@ -1,0 +1,66 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  schedule:
+    - cron: '0 4 * * *'  # Runs every day at 4 AM UTC
+  workflow_dispatch: # Allows manual triggering
+
+# Set permissions for GITHUB_TOKEN
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run script to update project list
+        run: python update_projects.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run script to update commit log
+        run: python update_commit_log.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+      - name: Convert Markdown to HTML using pandoc
+        run: |
+          pandoc --from=gfm --to=html --template=template.html --metadata title="Home" -s -o index.html index.md
+          pandoc --from=gfm --to=html --template=template.html --metadata title="Commit Log" -s -o commit-log.html commit-log.md
+      - name: List files in the workspace
+        run: ls -R
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload all generated files from the root directory
+          path: '.'
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
