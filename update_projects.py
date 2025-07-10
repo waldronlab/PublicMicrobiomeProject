@@ -95,7 +95,7 @@ try:
         h1 {{ color: #333; }}
         .dataTables_wrapper {{ font-size: 0.9em; }}
         table.dataTable th, table.dataTable td {{ white-space: normal; }}
-        table.dataTable a {{ color: #007bff; text-decoration: none; }}
+        table.dataTable a {{ color: #ff0000; text-decoration: none; }}
         table.dataTable a:hover {{ text-decoration: underline; }}
         
     </style>
