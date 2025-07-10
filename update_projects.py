@@ -89,14 +89,17 @@ try:
     <title>{title}</title>
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <div style="overflow-x:auto;">
     <style>
-        body {{ font-family: sans-serif; margin: 2em; background-color: #f9f9f9; }}
+        body {{ font-family: sans-serif; margin: 1em; background-color: #f9f9f9;font-size: 16px; }}
         h1 {{ color: #333; }}
         .dataTables_wrapper {{ font-size: 0.9em; }}
         table.dataTable th, table.dataTable td {{ white-space: normal; }}
         table.dataTable a {{ color: #007bff; text-decoration: none; }}
         table.dataTable a:hover {{ text-decoration: underline; }}
+        
     </style>
+    </div>
 </head>
 <body>
     <h1>{title}</h1>
