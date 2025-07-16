@@ -65,7 +65,7 @@ try:
         # Sanitize description to prevent HTML issues
         description = escape(item["description"]) if item["description"] else ""
         repo_name = item["name"]
-        bioconductor_link = "" 
+        bioconductor_link = None 
         if repo_name in HARDCODED_BIOC_URLS:
             bioconductor_url = HARDCODED_BIOC_URLS[repo_name]
             bioconductor_link = f'<a href="{bioconductor_url}" target="_blank">Bioconductor Link </a>'
@@ -83,11 +83,22 @@ try:
                pass 
     #https://bioconductor.org/packages/release/bioc/html/bugsigdbr.html
         #include bioconductor url if available and github icon
+        repo_column_html = f'{repo_name}'
+
+        repo_column_html += (
+        f'<a href="{item["html_url"]}" target="_blank">'
+        f'<img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px">'
+        f'</a>')
+        if bioconductor_link:
+           repo_column_html += (
+            f'<a href="{bioconductor_url}" target="_blank">Bioconductor Link </a>')
+
         projects.append({
             # Create a clickable link for the repository name
             #"Repository": f'<a href="{item["html_url"]}" target="_blank">{item["name"]}</a>',
-            "Repository":  f'<a href="{item["html_url"]}" target="_blank">{item["name"]} <img src="./githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px;"> </a>',
-            "Bioconductor": bioconductor_link,
+            #"Repository":  f'<a href="{item["html_url"]}" target="_blank">{item["name"]} <img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px;"> </a>',
+            "Repository": repo_column_html,
+            
             "Owner": item["owner"]["login"],
             "Description": description,
             "Stars": item["stargazers_count"],
