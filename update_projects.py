@@ -68,7 +68,7 @@ try:
         bioconductor_link = None 
         if repo_name in HARDCODED_BIOC_URLS:
             bioconductor_url = HARDCODED_BIOC_URLS[repo_name]
-            bioconductor_link = f'<a href="{bioconductor_url}" target="_blank">Bioconductor Link </a>'
+            bioconductor_link = f'<a href="{bioconductor_url}" target="_blank"> </a>'
         else:
             # Attempt to construct and validate a Bioconductor URL based on naming convention
             potential_bioc_package_name = repo_name
@@ -78,12 +78,16 @@ try:
                 bioc_response = requests.head(temp_bioc_url, timeout=5)
                 if bioc_response.status_code == 200:
                     bioconductor_url = temp_bioc_url
-                    bioconductor_link = f'<a href="{bioconductor_url}" target="_blank">Bioconductor Link </a>'
+                    bioconductor_link = f'<a href="{bioconductor_url}" target="_blank"> </a>'
             except requests.exceptions.RequestException as e:
                pass 
     #https://bioconductor.org/packages/release/bioc/html/bugsigdbr.html
+        repo_column_html = ""
         #include bioconductor url if available and github icon
-        repo_column_html = f'{repo_name}'
+        if bioconductor_link:
+            repo_column_html += f'<a href="{bioconductor_url}" target="_blank" style="color: red;">{repo_name}</a>'
+        else:
+            repo_column_html = f'{repo_name}'
 
         repo_column_html += (
         f'<a href="{item["html_url"]}" target="_blank">'
@@ -91,7 +95,7 @@ try:
         f'</a>')
         if bioconductor_link:
            repo_column_html += (
-            f'<a href="{bioconductor_url}" target="_blank">Bioconductor Link </a>')
+            f'<a href="{bioconductor_url}" target="_blank"> </a>')
 
         projects.append({
             # Create a clickable link for the repository name
