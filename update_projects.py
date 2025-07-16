@@ -86,7 +86,7 @@ try:
         projects.append({
             # Create a clickable link for the repository name
             #"Repository": f'<a href="{item["html_url"]}" target="_blank">{item["name"]}</a>',
-            "Repository":  f'<a href="{item["html_url"]}" target="_blank">{item["name"]} <img src="githubicon.svg" alt="GitHub Icon" style="height: 0.9em; vertical-align: middle; margin-left: 10px;"> </a>',
+            "Repository":  f'<a href="{item["html_url"]}" target="_blank">{item["name"]} <img src="/PublicMicrobiomeProject/githubicon.svg" alt="GitHub Icon" style="height: 0.9em; vertical-align: middle; margin-left: 10px;"> </a>',
             "Bioconductor": bioconductor_link,
             "Owner": item["owner"]["login"],
             "Description": description,
