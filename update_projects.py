@@ -19,6 +19,14 @@ SEARCH_ORG = "exampleorg"
 
 # For 'USER' mode, provide the user's GitHub handle.
 SEARCH_USER = "exampleuser"
+
+#--------------------Hardcode Biocondcutor url mapping -------------------------------------
+HARDCODED_BIOC_URLS = {"curatedMetagenomicData" : "https://bioconductor.org/packages/curatedMetagenomicData",
+"lefser" : "https://bioconductor.org/packages/lefser",
+"HMP16SData" : "https://bioconductor.org/packages/HMP16SData", 
+"bugsigdbr" :  "https://bioconductor.org/packages/bugsigdbr",
+"MicrobiomeBenchmarkData"  : "https://bioconductor.org/packages/MicrobiomeBenchmarkData"}
+
 # ==============================================================================
 
 # --- Build the search query based on the selected mode ---
@@ -34,6 +42,7 @@ elif SEARCH_MODE == 'USER':
     query_parts.append(f"user:{SEARCH_USER}")
     title = f"Projects for User: {SEARCH_USER}"
 
+#url equals github url
 search_query = "+".join(query_parts)
 url = f"https://api.github.com/search/repositories?q={search_query}&per_page=100"
 
@@ -55,10 +64,30 @@ try:
     for item in data["items"]:
         # Sanitize description to prevent HTML issues
         description = escape(item["description"]) if item["description"] else ""
-        
+        repo_name = item["name"]
+        bioconductor_link = "" 
+        if repo_name in HARDCODED_BIOC_URLS:
+            bioconductor_url = HARDCODED_BIOC_URLS[repo_name]
+            bioconductor_link = f'<a href="{bioconductor_url}" target="_blank">Bioconductor Link </a>'
+        else:
+            # Attempt to construct and validate a Bioconductor URL based on naming convention
+            potential_bioc_package_name = repo_name
+            bioc_base_url = "https://bioconductor.org/packages/release/bioc/html/"   
+            temp_bioc_url = f"{bioc_base_url}{potential_bioc_package_name}.html"
+            try:
+                bioc_response = requests.head(temp_bioc_url, timeout=5)
+                if bioc_response.status_code == 200:
+                    bioconductor_url = temp_bioc_url
+                    bioconductor_link = f'<a href="{bioconductor_url}" target="_blank">Bioconductor Link </a>'
+            except requests.exceptions.RequestException as e:
+               pass 
+    #https://bioconductor.org/packages/release/bioc/html/bugsigdbr.html
+        #include bioconductor url if available and github icon
         projects.append({
             # Create a clickable link for the repository name
-            "Repository": f'<a href="{item["html_url"]}" target="_blank">{item["name"]}</a>',
+            #"Repository": f'<a href="{item["html_url"]}" target="_blank">{item["name"]}</a>',
+            "Repository":  f'<a href="{item["html_url"]}" target="_blank">{item["name"]} <img src="githubicon.svg" alt="GitHub Icon" style="height: 0.9em; vertical-align: middle; margin-left: 10px;"> </a>',
+            "Bioconductor": bioconductor_link,
             "Owner": item["owner"]["login"],
             "Description": description,
             "Stars": item["stargazers_count"],
@@ -89,17 +118,14 @@ try:
     <title>{title}</title>
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
-    <div style="overflow-x:auto;">
     <style>
-        body {{ font-family: sans-serif; margin: 1em; background-color: #f9f9f9;font-size: 16px; }}
+        body {{ font-family: sans-serif; margin: 2em; background-color: #f9f9f9;font-size: 16px; }}
         h1 {{ color: #333; }}
         .dataTables_wrapper {{ font-size: 0.9em; }}
         table.dataTable th, table.dataTable td {{ white-space: normal; }}
         table.dataTable a {{ color: #ff0000; text-decoration: none; }}
         table.dataTable a:hover {{ text-decoration: underline; }}
-        
     </style>
-    </div>
 </head>
 <body>
     <h1>{title}</h1>
