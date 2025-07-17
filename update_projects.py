@@ -25,7 +25,9 @@ HARDCODED_BIOC_URLS = {"curatedMetagenomicData" : "https://bioconductor.org/pack
 "lefser" : "https://bioconductor.org/packages/lefser",
 "HMP16SData" : "https://bioconductor.org/packages/HMP16SData", 
 "bugsigdbr" :  "https://bioconductor.org/packages/bugsigdbr",
-"MicrobiomeBenchmarkData"  : "https://bioconductor.org/packages/MicrobiomeBenchmarkData"}
+"MicrobiomeBenchmarkData"  : "https://bioconductor.org/packages/MicrobiomeBenchmarkData",
+"bugphyzz" : "https://www.bioconductor.org/packages/release/data/experiment/html/bugphyzz.html"
+}
 
 # ==============================================================================
 
