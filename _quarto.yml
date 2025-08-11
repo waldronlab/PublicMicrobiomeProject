@@ -1,0 +1,28 @@
+project:
+  type: website
+website:
+  navbar:
+    left:
+      - href: index.qmd
+        text: PublicMicrobiomeProjectHub
+      - href: overview.qmd
+        text: Overview
+      - href : projects.qmd
+        text : Projects
+      - href : commit_log.qmd
+        text : CommitLog
+
+format:
+  html:
+    theme:
+      - flatly
+      - brand
+    css: style.css
+    toc: true
+    
+
+
+
+
+
+
