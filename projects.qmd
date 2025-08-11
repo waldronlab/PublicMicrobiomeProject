@@ -1,0 +1,286 @@
+---
+title: "PublicMicrobiomeProjects with Topics: r01ca230551"
+subtitle: "A list of repositories discovered on GitHub. The table is sortable by clicking on headers and searchable via the search box."
+format:
+  html:
+    page-layout: full
+    df-print: paged
+---
+
+<style>.dataframe {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+}
+.dataframe th, .dataframe td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+.dataframe th {
+background-color: #f2f2f2;
+cursor: pointer;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"> 
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Repository</th>
+      <th>Owner</th>
+      <th>Description</th>
+      <th>Stars</th>
+      <th>Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://bioconductor.org/packages/curatedMetagenomicData" target="_blank" style="color: red;">curatedMetagenomicData</a><a href="https://github.com/waldronlab/curatedMetagenomicData" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a><a href="https://bioconductor.org/packages/curatedMetagenomicData" target="_blank"> </a></td>
+      <td>waldronlab</td>
+      <td>Curated Metagenomic Data of the Human Microbiome</td>
+      <td>138</td>
+      <td>2025-07-18</td>
+    </tr>
+    <tr>
+      <td><a href="https://bioconductor.org/packages/lefser" target="_blank" style="color: red;">lefser</a><a href="https://github.com/waldronlab/lefser" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a><a href="https://bioconductor.org/packages/lefser" target="_blank"> </a></td>
+      <td>waldronlab</td>
+      <td>R implementation of the LEfSe method</td>
+      <td>59</td>
+      <td>2025-04-22</td>
+    </tr>
+    <tr>
+      <td>curatedMetagenomicDataAnalyses<a href="https://github.com/waldronlab/curatedMetagenomicDataAnalyses" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Analyses in R and Python Using curatedMetagenomicData</td>
+      <td>32</td>
+      <td>2025-07-30</td>
+    </tr>
+    <tr>
+      <td>curatedMetagenomicDataCuration<a href="https://github.com/waldronlab/curatedMetagenomicDataCuration" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Sample Metadata Curation for curatedMetagenomicData</td>
+      <td>29</td>
+      <td>2025-07-22</td>
+    </tr>
+    <tr>
+      <td>MicrobiomeWorkshop<a href="https://github.com/waldronlab/MicrobiomeWorkshop" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>A workshop on microbiome analysis using Bioconductor</td>
+      <td>15</td>
+      <td>2019-06-20</td>
+    </tr>
+    <tr>
+      <td>BugSigDBcuration<a href="https://github.com/waldronlab/BugSigDBcuration" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>For documenting issues related to BugSigDB curation.</td>
+      <td>13</td>
+      <td>2025-03-27</td>
+    </tr>
+    <tr>
+      <td><a href="https://bioconductor.org/packages/HMP16SData" target="_blank" style="color: red;">HMP16SData</a><a href="https://github.com/waldronlab/HMP16SData" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a><a href="https://bioconductor.org/packages/HMP16SData" target="_blank"> </a></td>
+      <td>waldronlab</td>
+      <td>16S rRNA Sequencing Data from the Human Microbiome Project</td>
+      <td>9</td>
+      <td>2025-05-05</td>
+    </tr>
+    <tr>
+      <td>curatedMetagenomicsNextflow<a href="https://github.com/seandavi/curatedMetagenomicsNextflow" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>seandavi</td>
+      <td>Curated Metagenomics Data Nextflow workflows</td>
+      <td>8</td>
+      <td>2025-07-03</td>
+    </tr>
+    <tr>
+      <td>BugSigDB<a href="https://github.com/waldronlab/BugSigDB" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>A microbial signatures database</td>
+      <td>8</td>
+      <td>2025-07-24</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.bioconductor.org/packages/release/data/experiment/html/bugphyzz.html" target="_blank" style="color: red;">bugphyzz</a><a href="https://github.com/waldronlab/bugphyzz" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a><a href="https://www.bioconductor.org/packages/release/data/experiment/html/bugphyzz.html" target="_blank"> </a></td>
+      <td>waldronlab</td>
+      <td>Harmonized annotation of microbial physiology</td>
+      <td>6</td>
+      <td>2025-04-16</td>
+    </tr>
+    <tr>
+      <td><a href="https://bioconductor.org/packages/bugsigdbr" target="_blank" style="color: red;">bugsigdbr</a><a href="https://github.com/waldronlab/bugsigdbr" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a><a href="https://bioconductor.org/packages/bugsigdbr" target="_blank"> </a></td>
+      <td>waldronlab</td>
+      <td>R-side access to published microbial signatures from BugSigDB</td>
+      <td>5</td>
+      <td>2025-05-29</td>
+    </tr>
+    <tr>
+      <td>bugSigSimple<a href="https://github.com/waldronlab/bugSigSimple" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Simple exploratory analysis of curated microbe signatures</td>
+      <td>4</td>
+      <td>2025-07-10</td>
+    </tr>
+    <tr>
+      <td>curatedMetagenomicDataTerminal<a href="https://github.com/waldronlab/curatedMetagenomicDataTerminal" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>A Command-Line Interface for curatedMetagenomicData</td>
+      <td>3</td>
+      <td>2021-11-13</td>
+    </tr>
+    <tr>
+      <td>lefserBenchmarking<a href="https://github.com/shbrief/lefserBenchmarking" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>shbrief</td>
+      <td>Benchmarking examples of lefser against LEfSe and microbiomeMarker</td>
+      <td>3</td>
+      <td>2024-11-19</td>
+    </tr>
+    <tr>
+      <td>BugSigDBExports<a href="https://github.com/waldronlab/BugSigDBExports" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>BugSigDB data files</td>
+      <td>3</td>
+      <td>2025-08-11</td>
+    </tr>
+    <tr>
+      <td>BugSigDBStats<a href="https://github.com/waldronlab/BugSigDBStats" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>BugSigDB Stats and Analysis</td>
+      <td>2</td>
+      <td>2025-08-06</td>
+    </tr>
+    <tr>
+      <td>curatedMetagenomicDataPipeline<a href="https://github.com/waldronlab/curatedMetagenomicDataPipeline" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>The Preprocessing Pipeline for curatedMetagenomicData</td>
+      <td>2</td>
+      <td>2021-10-14</td>
+    </tr>
+    <tr>
+      <td>MicrobiomeBenchmarkDataPrep<a href="https://github.com/waldronlab/MicrobiomeBenchmarkDataPrep" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Preparation of datasets for MicrobiomeBenchmarkData</td>
+      <td>1</td>
+      <td>2024-09-02</td>
+    </tr>
+    <tr>
+      <td>curatedMetagenomicDataODM<a href="https://github.com/shbrief/curatedMetagenomicDataODM" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>shbrief</td>
+      <td>Genestack&#x27;s Open Data Management (ODM) setup for curatedMetagenomicData curation</td>
+      <td>1</td>
+      <td>2025-07-28</td>
+    </tr>
+    <tr>
+      <td>taxPPro<a href="https://github.com/waldronlab/taxPPro" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td></td>
+      <td>1</td>
+      <td>2025-06-30</td>
+    </tr>
+    <tr>
+      <td>MicrobiomeBenchmarkDataLefse<a href="https://github.com/waldronlab/MicrobiomeBenchmarkDataLefse" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Running lefse with lefse-conda, lefser, and microbiomeMarker</td>
+      <td>1</td>
+      <td>2024-09-25</td>
+    </tr>
+    <tr>
+      <td>bugphyzzExports<a href="https://github.com/waldronlab/bugphyzzExports" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td></td>
+      <td>1</td>
+      <td>2025-08-10</td>
+    </tr>
+    <tr>
+      <td>bugphyzzAnalyses<a href="https://github.com/waldronlab/bugphyzzAnalyses" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Analyses with data and signatures imported from the bugphyzz package.</td>
+      <td>1</td>
+      <td>2024-06-28</td>
+    </tr>
+    <tr>
+      <td>BugSigDBEnrich<a href="https://github.com/waldronlab/BugSigDBEnrich" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>A ShinyApp to perform enrichemnt analysis with BugSigDB signatures.</td>
+      <td>0</td>
+      <td>2025-01-21</td>
+    </tr>
+    <tr>
+      <td>taxPProValidation<a href="https://github.com/waldronlab/taxPProValidation" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Code for validation analyses for prediction of annotations in bugphyzz</td>
+      <td>0</td>
+      <td>2024-07-05</td>
+    </tr>
+    <tr>
+      <td>nextflow_telemetry<a href="https://github.com/seandavi/nextflow_telemetry" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>seandavi</td>
+      <td>Python web api for nextflow web callbacks</td>
+      <td>0</td>
+      <td>2025-03-13</td>
+    </tr>
+    <tr>
+      <td>PublicMicrobiomeProject<a href="https://github.com/waldronlab/PublicMicrobiomeProject" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Tracking for project R01ca230551: Exploiting Public Metagenomic Data to Uncover Cancer-Microbiome Relationships</td>
+      <td>0</td>
+      <td>2025-07-31</td>
+    </tr>
+    <tr>
+      <td><a href="https://bioconductor.org/packages/MicrobiomeBenchmarkData" target="_blank" style="color: red;">MicrobiomeBenchmarkData</a><a href="https://github.com/waldronlab/MicrobiomeBenchmarkData" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a><a href="https://bioconductor.org/packages/MicrobiomeBenchmarkData" target="_blank"> </a></td>
+      <td>waldronlab</td>
+      <td>Data for benchmarking in microbiome research.</td>
+      <td>0</td>
+      <td>2025-04-16</td>
+    </tr>
+    <tr>
+      <td>cMDMeta<a href="https://github.com/waldronlab/cMDMeta" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Dashboard for cMD</td>
+      <td>0</td>
+      <td>2024-12-28</td>
+    </tr>
+    <tr>
+      <td>MicrobiomeBenchmarkDataAnalyses<a href="https://github.com/waldronlab/MicrobiomeBenchmarkDataAnalyses" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Analyses using the datasets provided by the MicrobiomeBenchmarkData package.</td>
+      <td>0</td>
+      <td>2025-04-18</td>
+    </tr>
+    <tr>
+      <td>MicrobiomeProject<a href="https://github.com/bd4everyone/MicrobiomeProject" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>bd4everyone</td>
+      <td>Tracking for project R01ca230551: Exploiting Public Metagenomic Data to Uncover Cancer-Microbiome Relationships</td>
+      <td>0</td>
+      <td>2025-08-11</td>
+    </tr>
+    <tr>
+      <td>ncbitaxon<a href="https://github.com/waldronlab/ncbitaxon" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Hosting the NCBI taxnomy</td>
+      <td>0</td>
+      <td>2024-08-21</td>
+    </tr>
+    <tr>
+      <td>curatedMetagenomicDataShinyApp<a href="https://github.com/waldronlab/curatedMetagenomicDataShinyApp" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>ShinyApp for curatedMetagenomicDataCuration</td>
+      <td>0</td>
+      <td>2021-11-29</td>
+    </tr>
+    <tr>
+      <td>BugSigDBPaper<a href="https://github.com/waldronlab/BugSigDBPaper" target="_blank"><img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px; margin-right: 10px"></a></td>
+      <td>waldronlab</td>
+      <td>Figures and Tables for the BugSigDB paper</td>
+      <td>0</td>
+      <td>2023-10-19</td>
+    </tr>
+  </tbody>
+</table>
+
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script> 
+<script>
+$(document).ready( function () { 
+$('.dataframe').DataTable();
+} );
+</script> 

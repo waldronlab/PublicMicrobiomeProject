@@ -2,10 +2,12 @@ import requests
 import os
 import json
 from datetime import datetime
+#import pytz
+
 
 # --- Configuration ---
 COMMITS_PER_REPO = 5 # Number of recent commits to fetch for each repository
-OUTPUT_FILENAME = "commit-log.md"
+OUTPUT_FILENAME = "commit_log.qmd"
 INPUT_FILENAME = "repositories.json"
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -52,21 +54,31 @@ for repo_full_name in repos:
 # 3. Sort all collected commits by date (newest first)
 all_commits.sort(key=lambda x: x["date"], reverse=True)
 
+
 # 4. Write the blog-style Markdown file
 print(f"\nWriting {len(all_commits)} total commits to {OUTPUT_FILENAME}...")
 with open(OUTPUT_FILENAME, "w", encoding="utf-8") as f:
-    f.write("# Recent Commit Activity\n\n")
-    f.write("This page lists the most recent commits from all related project repositories.\n\n")
-
+    f.write("---\n")
+    f.write('title: "Recent Commit Activity"\n\n')
+    f.write("format: html\n")
+    f.write('subtitle: "This site automatically tracks a curated list of GitHub projects funded by NIH grant [R01CA230551](https://reporter.nih.gov/project-details/9963159) from the National Cancer Institute to Levi Waldron at the CUNY Graduate School of Public Health and Health Policy" \n\n')
+    f.write('toc: false\n')
+    f.write('sidebar: false\n')
+    f.write("---\n\n")
     for commit in all_commits:
         # Format date for readability
-        date_obj = datetime.fromisoformat(commit['date'].replace("Z", "+00:00"))
-        formatted_date = date_obj.strftime('%Y-%m-%d %H:%M:%S UTC')
-
-        f.write(f"### [`{commit['repo']}`]({commit['url']})\n\n")
-        f.write(f"**Message:** {commit['message']}\n\n")
-        f.write(f"**Author:** {commit['author']}\n\n")
-        f.write(f"**Date:** {formatted_date}\n\n")
-        f.write("---\n")
+         date_obj = datetime.fromisoformat(commit['date'].replace("Z", "+00:00"))
+         formatted_date = date_obj.strftime('%Y-%m-%d %H:%M:%S UTC')
+         #formatted_date = format_date(commit["date"])
+         f.write(f"### [`{commit['repo']}`]({commit['url']})\n\n")
+         f.write(f"**Message:** {commit['message']}\n\n")
+         f.write(f"**Author:** {commit['author']}\n\n")
+         f.write(f"**Date:** {formatted_date}\n\n")
+         f.write("---\n\n")
+        #f.write(f"### [`{commit['repo']}`]({commit['url']})\n\n")
+        #f.write(f"**Message:** {commit['message']}\n\n")
+        #f.write(f"**Author:** {commit['author']}\n\n")
+        #f.write(f"**Date:** {formatted_date}\n\n")
+        #f.write("---\n")
 
 print("Done.")
