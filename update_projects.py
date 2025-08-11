@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-from IPython.display import display
+#from IPython.display import display
 import os
 import json
 from html import escape
