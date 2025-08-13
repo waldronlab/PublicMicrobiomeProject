@@ -1,9 +1,11 @@
 import requests
 import pandas as pd
+#from IPython.display import display
 import os
 import json
 from html import escape
-
+#import tabulate
+#import itables
 # ==============================================================================
 # --- Configuration ---
 # ==============================================================================
@@ -47,7 +49,6 @@ elif SEARCH_MODE == 'USER':
 #url equals github url
 search_query = "+".join(query_parts)
 url = f"https://api.github.com/search/repositories?q={search_query}&per_page=100"
-
 # --- Get data from GitHub API ---
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 headers = {"Authorization": f"token {GITHUB_TOKEN}"} if GITHUB_TOKEN else None
@@ -101,10 +102,7 @@ try:
 
         projects.append({
             # Create a clickable link for the repository name
-            #"Repository": f'<a href="{item["html_url"]}" target="_blank">{item["name"]}</a>',
-            #"Repository":  f'<a href="{item["html_url"]}" target="_blank">{item["name"]} <img src="githubicon.svg" style="height: 0.9em; vertical-align: middle; margin-left: 10px;"> </a>',
             "Repository": repo_column_html,
-            
             "Owner": item["owner"]["login"],
             "Description": description,
             "Stars": item["stargazers_count"],
@@ -116,61 +114,46 @@ try:
     if projects:
         # --- Create HTML Page ---
         df = pd.DataFrame(projects)
-        
-        # Convert dataframe to an HTML table with a specific ID and classes
-        table_html = df.to_html(
-            index=False, 
-            table_id="projectsTable", 
-            classes="display compact", 
-            escape=False # This allows the HTML links to be rendered
-        )
-
-        # Create the full HTML content using a template
-        html_content = f"""
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
-    <style>
-        body {{ font-family: sans-serif; margin: 2em; background-color: #f9f9f9;font-size: 16px; }}
-        h1 {{ color: #333; }}
-        .dataTables_wrapper {{ font-size: 0.9em; }}
-        table.dataTable th, table.dataTable td {{ white-space: normal; }}
-        table.dataTable a {{ color: #ff0000; text-decoration: none; }}
-        table.dataTable a:hover {{ text-decoration: underline; }}
-    </style>
-</head>
-<body>
-    <h1>{title}</h1>
-    <p>A list of repositories discovered on GitHub. The table is sortable by clicking on headers and searchable via the search box.</p>
-    
-    {table_html}
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-
-    <script>
-    // Initialize the DataTable
-    $(document).ready(function() {{
-        $('#projectsTable').DataTable({{
-            "pageLength": 25, // Show 25 entries per page
-            "order": [[3, "desc"]] // Initially sort by Stars, descending
-        }});
-    }});
-    </script>
-</body>
-</html>
-"""
-        # Write the content to an HTML file
-        with open("projects.html", "w", encoding="utf-8") as f:
-            f.write(html_content)
-        print(f"Successfully created projects.html with {len(projects)} projects.")
+        html_table = df.to_html(escape=False, index=False)
+        #print("xxxxx",df,"\n")
+        # Write the content to an quarto markdown file
+        with open("projects.qmd", "w", encoding="utf-8") as f:
+            f.write("---\n")
+            f.write('title: "PublicMicrobiomeProjects with Topics: r01ca230551"\n')
+            f.write('subtitle: "A list of repositories discovered on GitHub. The table is sortable by clicking on headers and searchable via the search box."\n')
+            f.write("format:\n")
+            f.write("  html:\n")
+            #f.write("    css: style.css\n")
+            f.write("    page-layout: full\n")
+            f.write("    df-print: paged\n")
+            f.write("---\n\n")
+            f.write('<style>')
+            f.write('.dataframe {\n')
+            f.write('width: 100%;\n')
+            f.write('border-collapse: collapse;\n')
+            f.write('margin-top: 20px;\n')
+            f.write('}\n') 
+            f.write('.dataframe th, .dataframe td {\n')
+            f.write('border: 1px solid #ddd;\n')
+            f.write('padding: 8px;\n')
+            f.write('text-align: left;\n')
+            f.write('}\n') 
+            f.write('.dataframe th {\n')
+            f.write('background-color: #f2f2f2;\n')
+            f.write('cursor: pointer;\n')
+            f.write('}\n')
+            f.write('</style>\n\n')
+            f.write('<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"> \n\n')
+            f.write(html_table)
+            f.write('\n\n')
+            f.write('<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> \n')
+            f.write('<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script> \n')
+            f.write('<script>\n')
+            f.write('$(document).ready( function () { \n')
+            f.write("$('.dataframe').DataTable();\n")
+            f.write('} );\n')
+            f.write('</script> \n')  
+        print(f"Successfully created projects.qmd with {len(projects)} projects.")
 
         # Write the JSON file for the commit log script (no changes here)
         with open("repositories.json", "w") as f:

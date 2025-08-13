@@ -37,12 +37,14 @@ jobs:
         run: python update_commit_log.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Install pandoc
-        run: sudo apt-get update && sudo apt-get install -y pandoc
-      - name: Convert Markdown to HTML using pandoc
+      - name: Use quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Convert quarto markdown to HTML using quarto
         run: |
-          pandoc --from=gfm --to=html --template=template.html --metadata title="Home" -s -o index.html index.md
-          pandoc --from=gfm --to=html --template=template.html --metadata title="Commit Log" -s -o commit-log.html commit-log.md
+          quarto render  index.qmd --output index.html
+          quarto render  commit_log.qmd --output commit_log.html
+          quarto render  projects.qmd --output projects.html
+          quarto render  overview.qmd --output overview.html
       - name: List files in the workspace
         run: ls -R
       - name: Setup Pages
@@ -51,7 +53,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload all generated files from the root directory
-          path: '.'
+          path: '_site'
 
   # Deployment job
   deploy:

@@ -1,0 +1,14 @@
+---
+title: "PublicMicrobiomeProject Overview"
+---
+
+- This proposal efficiently extracts new value from published microbiome research through three aims:
+    - **First**, it improves the interpretability of cancer-linked microbiome profiles by translating concepts from Gene Set Enrichment Analysis and developing microbial signature resources.
+    - **Second**, it develops new methods to identify strain-level microbial features, fungi, human viruses, and bacteriophages from WMS data and applies these to thousands of available cancer-associated metagenomes and controls.
+    - **Finally**, it identifies microbiota, community structure and functions relevant in the development or inhibition of cancer by pooled analysis and meta-analysis of publicly available human microbiome profiles, and makes these newly processed data and manually curated clinical data conveniently available to the cancer research community for further interrogation.
+
+- **Significance:**  
+    - This contribution is significant because it increases the likelihood of identifying new microbiome correlates of cancer, of correctly distinguishing causal factors from artifacts of confounding or technical batches, and of developing effective public health interventions based on the human microbiome.
+
+- **Innovation:**  
+    - The proposed research is innovative because it identifies and corrects important deficiencies in how microbiome data are processed, interpreted, and made available for re-use on a large scale by other research teams.
