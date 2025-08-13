@@ -2,7 +2,9 @@
 title : "Exploiting Public Metagenomic Data to Uncover Cancer-Microbiome Relationships"
 ---
 
-This site automatically tracks a curated list of GitHub Microbiome projects and their recent development activity.
+This site automatically tracks GitHub repos associated with NCI grant [R01CA230551](https://reporter.nih.gov/project-details/10990882) to the CUNY Graduate School of Public Health and Health Policy. 
+* PI: [Levi Waldron](https://scholar.google.com/citations?user=-Bfm-2IAAAAJ&hl=en&oi=ao)
+* co-Investigators: [Curtis Huttenhower](https://scholar.google.com/citations?user=yFncM6AAAAAJ&hl=en&oi=ao), [Nicola Segata](https://scholar.google.com/citations?user=ZXjO-Q4AAAAJ&hl=en&oi=ao), [Sean Davis](https://scholar.google.com/citations?user=hLFc29kAAAAJ&hl=en&oi=ao)
 
 ## Navigation
 
